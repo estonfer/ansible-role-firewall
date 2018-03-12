@@ -39,3 +39,30 @@ firewall_v6_default_rules:
     - -P INPUT DROP
 firewall_v6_group_rules: {}
 firewall_v6_host_rules: {}
+
+
+firewall_v4_flush_chain_command: |
+  iptables --flush
+  iptables -t raw --flush
+  iptables -t nat --flush
+  iptables -t mangle --flush
+
+firewall_v4_delete_chain_command: |
+  iptables --delete-chain
+  iptables -t raw --delete-chain
+  iptables -t nat --delete-chain
+  iptables -t mangle --delete-chain
+
+firewall_v6_flush_chain_command: |
+  iptables --flush
+  iptables -t raw --flush
+  iptables -t nat --flush
+  iptables -t mangle --flush
+
+firewall_v6_delete_chain_command: |
+  iptables --delete-chain
+  iptables -t raw --delete-chain
+  iptables -t nat --delete-chain
+  iptables -t mangle --delete-chain
+
+firewall_persist_rules: true
